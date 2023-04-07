@@ -26,6 +26,8 @@
       document.getElementById('message').innerHTML = getRandomMessage();
 
       function clickOnEmoji() {
+        document.getElementById('emoji').innerHTML = '😨';
+        document.getElementById('message').innerHTML = 'Ouch!'
         ipcRenderer.send('emoji-clicked', 'emoji-clicked');
       }
     </script>

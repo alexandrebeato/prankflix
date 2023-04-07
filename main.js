@@ -12,6 +12,7 @@ const createWindow = () => {
     height: windowHeight,
     maximizable: false,
     resizable: false,
+    alwaysOnTop: true,
     title: 'PrankFlix',
     icon: 'assets/img/icon.ico',
     webPreferences: {
@@ -40,6 +41,7 @@ const openSadWindow = () => {
     height: windowHeight,
     maximizable: false,
     resizable: false,
+    alwaysOnTop: true,
     title: 'PrankFlix',
     icon: 'assets/img/icon.ico',
     center: true,
