@@ -4,6 +4,10 @@
 
 PrankFlix is an simple application that opens two new windows when the user attempts to close one. Is just a prank to be funny with your friends. The application does not cause any harm to the system.
 
+<p align="center">
+  <img src="assets/img/screen.gif" /> 
+</p>
+
 ## How to close
 
 **To close the application, just click on the in the emoji 10 TIMES and the application will close permanently.**
