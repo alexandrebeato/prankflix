@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="centered text-center">
+      <span onclick="clickOnEmoji()" class="emoji" id="emoji"></span>
+      <br />
+      <span class="message" id="message"></span>
+    </div>
+
+    <script src="messages.js"></script>
+    <script>
+      const { ipcRenderer } = require('electron');
+
+      document.getElementById('emoji').innerHTML = getRandomEmoji();
+      document.getElementById('message').innerHTML = getRandomMessage();
+
+      function clickOnEmoji() {
+        ipcRenderer.send('emoji-clicked', 'emoji-clicked');
+      }
+    </script>
+  </body>
+</html>
