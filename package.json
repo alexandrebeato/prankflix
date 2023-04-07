@@ -19,5 +19,30 @@
   "homepage": "https://github.com/alexandrebeato/prankflix#readme",
   "devDependencies": {
     "electron": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.alexandrebeato.prankflix",
+    "productName": "PrankFlix",
+    "copyright": "Copyright © 2023 Alexandre Beato",
+    "win": {
+      "publisherName": "Alexandre Beato",
+      "icon": "assets/img/icon.ico",
+      "publish": [
+        "github"
+      ],
+      "target": [
+        "nsis"
+      ]
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "alexandrebeato",
+        "repo": "PrankFlix",
+        "vPrefixedTagName": true,
+        "private": true,
+        "releaseType": "draft"
+      }
+    ]
   }
 }
