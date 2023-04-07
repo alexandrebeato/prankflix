@@ -2,6 +2,7 @@ const electron = require('electron');
 
 const windowWidth = 400;
 const windowHeight = 250;
+const windowsOpened = [];
 let howManyTimesUserClickedOnTheEmoji = 0;
 let closeApplication = false;
 
@@ -12,11 +13,13 @@ const createWindow = () => {
     maximizable: false,
     resizable: false,
     title: 'PrankFlix',
+    icon: 'assets/img/icon.ico',
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
     },
   });
+
   window.loadFile('index.html');
   window.setMenuBarVisibility(false);
   setRandomWindowPosition(window);
@@ -25,9 +28,28 @@ const createWindow = () => {
     if (!closeApplication) {
       createWindow();
       createWindow();
-    } else {
-      electron.app.quit();
     }
+  });
+
+  windowsOpened.push(window);
+};
+
+const openSadWindow = () => {
+  const window = new electron.BrowserWindow({
+    width: windowWidth,
+    height: windowHeight,
+    maximizable: false,
+    resizable: false,
+    title: 'PrankFlix',
+    icon: 'assets/img/icon.ico',
+    center: true,
+  });
+
+  window.loadFile('sad.html');
+  window.setMenuBarVisibility(false);
+
+  window.on('closed', () => {
+    electron.app.quit();
   });
 };
 
@@ -50,7 +72,11 @@ electron.app.whenReady().then(() => {
 
     if (howManyTimesUserClickedOnTheEmoji >= 10) {
       closeApplication = true;
-      electron.app.quit();
+      windowsOpened.forEach((window) => {
+        if (!window.isDestroyed()) window.close();
+      });
+
+      openSadWindow();
     }
   });
 });

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Comic';
-  src: url('fonts/hey_comic/Hey\ Comic.otf');
+  src: url('assets/fonts/hey_comic/Hey\ Comic.otf');
 }
 
 * {
@@ -8,8 +8,6 @@
 }
 
 body {
-  background-color: #d88400;
-  color: #ffdfbb;
   font-family: 'Comic';
 }
 
@@ -32,4 +30,8 @@ body {
 
 .message {
   font-size: 20px;
+}
+
+.small {
+  font-size: 10px;
 }
